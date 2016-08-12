@@ -1,0 +1,12 @@
+server:
+  port: 9999
+  contextPath : /jzli
+
+
+logging:
+  level: info
+  file: ./log/info.log
+
+
+
+
