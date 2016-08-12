@@ -14,6 +14,16 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
+// 版本信息
+version = "0.0.1-SNAPSHOT"
+group = "com.jzli"
+// 发布包的文件名前缀
+def prjArtifactId = "SpringBootDemo"
+
+jar {
+    baseName = prjArtifactId
+}
+
 
 repositories {
     mavenLocal()
