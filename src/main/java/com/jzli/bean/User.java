@@ -1,5 +1,7 @@
 package com.jzli.bean;
 
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * =======================================================
  *
@@ -12,7 +14,9 @@ package com.jzli.bean;
  */
 public class User {
 
+    @ApiModelProperty(value = "用户Id")
     private int id;
+    @ApiModelProperty(value = "用户名")
     private String name;
 
     public User(int id, String name) {
