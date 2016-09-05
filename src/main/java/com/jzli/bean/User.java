@@ -2,6 +2,8 @@ package com.jzli.bean;
 
 import io.swagger.annotations.ApiModelProperty;
 
+import java.io.Serializable;
+
 /**
  * =======================================================
  *
@@ -12,7 +14,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @Description ：
  * ========================================================
  */
-public class User {
+public class User implements Serializable{
 
     @ApiModelProperty(value = "用户Id")
     private int id;
