@@ -4,11 +4,14 @@ import com.jzli.bean.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -23,6 +26,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 @RestController
 @Api(value = "用户接口", description = "用户接口")
+@EnableScheduling
 public class UserController {
     private AtomicInteger counter = new AtomicInteger();
 
@@ -30,5 +34,11 @@ public class UserController {
     @ApiOperation(value = "添加用户", httpMethod = "GET", response = User.class)
     public User getUser(@ApiParam(required = true, name = "name", value = "用户名") @PathVariable("name") String name) {
         return new User(counter.getAndIncrement(), name);
+    }
+
+    @Scheduled(cron = "0 */1 *  * * * ")
+    public void test() {
+        String date = new Date().toGMTString();
+        System.out.println(date);
     }
 }
